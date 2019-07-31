@@ -1,4 +1,4 @@
-const readlineSync = require('readline-sync');
+const readlineSync = require("readline-sync");
 
 /**
  * Checks if passed in array contains any blanks
@@ -6,7 +6,7 @@ const readlineSync = require('readline-sync');
  * @returns {boolean}
  */
 function isWordSolved(wordArray) {
-  return wordArray.every(letter => letter !== '_');
+  return wordArray.every(letter => letter !== "_");
 }
 
 /**
@@ -23,8 +23,8 @@ function randomlySelectWord(words) {
  * @param {number} length length of target word
  * @returns {string[]}
  */
-function createBlankWordArray(length) {
-  return new Array(length).fill('_');
+function createBlankWordArray(length = 0) {
+  return new Array(length).fill("_");
 }
 
 /**
@@ -46,7 +46,7 @@ function fillInGuessedLetters(guessedLetter, guessedWord, targetWord) {
  * @returns {string}
  */
 function stringify(wordArray = []) {
-  return wordArray.join('');
+  return wordArray.join("");
 }
 
 /**

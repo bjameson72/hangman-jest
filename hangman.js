@@ -6,7 +6,7 @@ const {
   askForALetter,
   wordIncludesLetter,
   fillInGuessedLetters,
-} = require('./lib');
+} = require("./lib");
 
 /**
  * Recursive function that plays one round (a single guess) of hangman
@@ -16,7 +16,7 @@ const {
  * @param {number} maxStrikes total strikes the user is allowed
  */
 function playHangman(
-  targetWord = '',
+  targetWord = "",
   guessedWord = createBlankWordArray(targetWord.length),
   strikes = 0,
   maxStrikes = 5
@@ -37,13 +37,8 @@ function playHangman(
   const guessedLetter = askForALetter();
 
   if (wordIncludesLetter(targetWord, guessedLetter)) {
-    print('Good guess!');
-    playHangman(
-      targetWord,
-      fillInGuessedLetters(guessedLetter, guessedWord, targetWord),
-      strikes,
-      maxStrikes
-    );
+    print("Good guess!");
+    playHangman(targetWord, fillInGuessedLetters(guessedLetter, guessedWord, targetWord), strikes, maxStrikes);
   } else {
     print(`Wrong! You have ${maxStrikes - (strikes + 1)} strikes left`);
     playHangman(targetWord, guessedWord, strikes + 1, maxStrikes);
