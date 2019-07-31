@@ -1,4 +1,4 @@
-const { stringify, createBlankWordArray, isWordSolved } = require("./lib");
+const { stringify, createBlankWordArray, isWordSolved, print, randomlySelectWord } = require("./lib");
 
 describe("stringify", () => {
   it("should convert an arbitrary string array to a string", () => {
@@ -65,4 +65,46 @@ describe("isWordSolved", () => {
     const result = isWordSolved(input);
     expect(result).toBeTruthy();
   });
+
+  it("should throw a TypeError if passed undefined input", () => {
+    expect.assertions(1);
+    try {
+      isWordSolved();
+    } catch (err) {
+      expect(err).toBeInstanceOf(TypeError);
+    }
+  });
 });
+
+describe("print", () => {
+  it("should log output to the console", () => {
+    console.log = jest.fn();
+    print("some input");
+    expect(console.log).toBeCalledTimes(1);
+    expect(console.log).toBeCalledWith("Some Input");
+    console.log.mockClear();
+  });
+
+  it("should output an empty string to the console", () => {
+    print("");
+    expect(console.log).toBeCalledTimes(1);
+    expect(console.log).toBeCalledWith("");
+  });
+});
+
+// describe("randomlySelectWord", () => {
+//   //   Math.random = jest.fn(() => 0.5);
+//   Math.random = jest.fn();
+//   it("should return the middle word", () => {
+//     Math.random
+//       .mockReturnValueOnce(0)
+//       .mockReturnValueOnce(0.5)
+//       .mockReturnValueOnce(0.9);
+
+//     const firstResult = randomlySelectWord(["first", "second", "third"]);
+//     const secondResult = randomlySelectWord(["first", "second", "third"]);
+//     const thirdResult = randomlySelectWord(["first", "second", "third"]);
+//     const result = randomlySelectWord(["first", "second", "third"]);
+//     expect(result).toBe("second");
+//   });
+// });
