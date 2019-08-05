@@ -76,14 +76,14 @@ describe("isWordSolved", () => {
   });
 });
 
-describe("print", () => {
-  it("should log output to the console", () => {
-    console.log = jest.fn();
-    print("some input");
-    expect(console.log).toBeCalledTimes(1);
-    expect(console.log).toBeCalledWith("Some Input");
-    console.log.mockClear();
-  });
+// describe("print", () => {
+//   it("should log output to the console", () => {
+//     console.log = jest.fn();
+//     print("some input");
+//     expect(console.log).toBeCalledTimes(1);
+//     expect(console.log).toBeCalledWith("Some Input");
+//     console.log.mockClear();
+//   });
 
   it("should output an empty string to the console", () => {
     print("");
